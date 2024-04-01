@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> RepoEntry {
-        RepoEntry(date: Date(), repo: Repository.placeholder)
+        RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (RepoEntry) -> ()) {
-        let entry = RepoEntry(date: Date(), repo: Repository.placeholder)
+        let entry = RepoEntry(date: Date(), repo: Repository.placeholder, avatarImageData: Data())
         completion(entry)
     }
 
@@ -24,7 +24,8 @@ struct Provider: TimelineProvider {
             
             do {
                 let repo = try await NetworkManager.shared.getRepo(atUrl: RepoURL.swiftNews)
-                let entry = RepoEntry(date: .now, repo: repo)
+                let avatarImageData = await NetworkManager.shared.downloadImageData(from: repo.owner.avatarUrl)
+                let entry = RepoEntry(date: .now, repo: repo, avatarImageData: avatarImageData ?? Data())
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
             } catch {
@@ -37,6 +38,7 @@ struct Provider: TimelineProvider {
 struct RepoEntry: TimelineEntry {
     let date: Date
     let repo: Repository
+    let avatarImageData: Data
 }
 
 struct RepoWatcherWidgetEntryView : View {
@@ -50,8 +52,10 @@ struct RepoWatcherWidgetEntryView : View {
         HStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Circle()
+                    Image(uiImage: UIImage(data: entry.avatarImageData) ?? UIImage(named: "avatar")!)
+                        .resizable()
                         .frame(width: 50, height: 50)
+                        .clipShape(.circle)
                     
                     Text(entry.repo.name)
                         .font(.title2)
@@ -118,8 +122,8 @@ struct RepoWatcherWidget: Widget {
 #Preview(as: .systemMedium) {
     RepoWatcherWidget()
 } timeline: {
-    RepoEntry(date: .now, repo: Repository.placeholder)
-    RepoEntry(date: .now, repo: Repository.placeholder)
+    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
+    RepoEntry(date: .now, repo: Repository.placeholder, avatarImageData: Data())
 }
 
 private struct StatLabel: View {
