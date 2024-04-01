@@ -21,6 +21,8 @@
 		D371CDA82BBAFB9600F60B6F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDA52BBAFB7800F60B6F /* Repository.swift */; };
 		D371CDAA2BBB021700F60B6F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDA92BBB021700F60B6F /* NetworkManager.swift */; };
 		D371CDAB2BBB021700F60B6F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDA92BBB021700F60B6F /* NetworkManager.swift */; };
+		D371CDAD2BBB0B8500F60B6F /* RepoMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDAC2BBB0B8500F60B6F /* RepoMediumView.swift */; };
+		D371CDAE2BBB0B8500F60B6F /* RepoMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDAC2BBB0B8500F60B6F /* RepoMediumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		D371CD9D2BBAF6D700F60B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D371CDA52BBAFB7800F60B6F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		D371CDA92BBB021700F60B6F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D371CDAC2BBB0B8500F60B6F /* RepoMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoMediumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 				D371CD992BBAF6D600F60B6F /* RepoWatcherWidget.swift */,
 				D371CD9B2BBAF6D700F60B6F /* Assets.xcassets */,
 				D371CD9D2BBAF6D700F60B6F /* Info.plist */,
+				D371CDAC2BBB0B8500F60B6F /* RepoMediumView.swift */,
 			);
 			path = RepoWatcherWidget;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D371CDAA2BBB021700F60B6F /* NetworkManager.swift in Sources */,
+				D371CDAD2BBB0B8500F60B6F /* RepoMediumView.swift in Sources */,
 				D322F89A2BBAF49F00895232 /* ContentView.swift in Sources */,
 				D322F8982BBAF49F00895232 /* RepoWatcherApp.swift in Sources */,
 				D371CDA62BBAFB7800F60B6F /* Repository.swift in Sources */,
@@ -257,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D371CDAB2BBB021700F60B6F /* NetworkManager.swift in Sources */,
+				D371CDAE2BBB0B8500F60B6F /* RepoMediumView.swift in Sources */,
 				D371CD9A2BBAF6D600F60B6F /* RepoWatcherWidget.swift in Sources */,
 				D371CD982BBAF6D600F60B6F /* RepoWatcherWidgetBundle.swift in Sources */,
 				D371CDA82BBAFB9600F60B6F /* Repository.swift in Sources */,
