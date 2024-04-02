@@ -1,6 +1,6 @@
 //
-//  RepoWatcherWidget.swift
-//  RepoWatcherWidget
+//  CompactRepoWidget.swift
+//  CompactRepoWidget
 //
 //  Created by Jason Mitchell on 4/1/24.
 //
@@ -8,13 +8,13 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> RepoEntry {
-        RepoEntry(date: Date(), repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+struct CompactRepoProvider: TimelineProvider {
+    func placeholder(in context: Context) -> CompactRepoEntry {
+        CompactRepoEntry(date: Date(), repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (RepoEntry) -> ()) {
-        let entry = RepoEntry(date: Date(), repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+    func getSnapshot(in context: Context, completion: @escaping (CompactRepoEntry) -> ()) {
+        let entry = CompactRepoEntry(date: Date(), repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
         completion(entry)
     }
 
@@ -38,7 +38,7 @@ struct Provider: TimelineProvider {
                 }
                 
                 // Create Entry & Timeline
-                let entry = RepoEntry(date: .now, repo: repo, bottomRepo: bottomRepo)
+                let entry = CompactRepoEntry(date: .now, repo: repo, bottomRepo: bottomRepo)
                 let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
                 completion(timeline)
             } catch {
@@ -48,15 +48,15 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct RepoEntry: TimelineEntry {
+struct CompactRepoEntry: TimelineEntry {
     let date: Date
     let repo: Repository
     let bottomRepo: Repository?
 }
 
-struct RepoWatcherWidgetEntryView : View {
+struct CompactRepoEntryView : View {
     @Environment(\.widgetFamily) var family
-    var entry: RepoEntry
+    var entry: CompactRepoEntry
     
     var body: some View {
         switch family {
@@ -77,16 +77,16 @@ struct RepoWatcherWidgetEntryView : View {
     }
 }
 
-struct RepoWatcherWidget: Widget {
-    let kind: String = "RepoWatcherWidget"
+struct CompactRepoWidget: Widget {
+    let kind: String = "CompactRepoWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: CompactRepoProvider()) { entry in
             if #available(iOS 17.0, *) {
-                RepoWatcherWidgetEntryView(entry: entry)
+                CompactRepoEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                RepoWatcherWidgetEntryView(entry: entry)
+                CompactRepoEntryView(entry: entry)
                     .padding()
                     .background()
             }
@@ -99,15 +99,15 @@ struct RepoWatcherWidget: Widget {
 }
 
 #Preview(as: .systemMedium) {
-    RepoWatcherWidget()
+    CompactRepoWidget()
 } timeline: {
-    RepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
-    RepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+    CompactRepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+    CompactRepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
 }
 
 #Preview(as: .systemLarge) {
-    RepoWatcherWidget()
+    CompactRepoWidget()
 } timeline: {
-    RepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
-    RepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+    CompactRepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
+    CompactRepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: MockData.repoTwo)
 }
