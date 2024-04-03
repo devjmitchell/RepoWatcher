@@ -66,8 +66,10 @@ struct ContributorEntryView : View {
     var body: some View {
         VStack {
             RepoMediumView(repo: entry.repo)
+            Spacer().frame(height: 40)
             ContributorMediumView(repo: entry.repo)
         }
+        .containerBackground(for: .widget) { }
     }
 }
 
@@ -88,7 +90,6 @@ struct ContributorWidget: Widget {
         .configurationDisplayName("Contributors")
         .description("Keep track of a repository's top contributors.")
         .supportedFamilies([.systemLarge])
-        .contentMarginsDisabled() // I added to remove extra padding, not in Sean's course (issue from later iOS versions?)
     }
 }
 
@@ -96,5 +97,5 @@ struct ContributorWidget: Widget {
     ContributorWidget()
 } timeline: {
     ContributorEntry(date: .now, repo: MockData.repoOne)
-    ContributorEntry(date: .now, repo: MockData.repoOne)
+    ContributorEntry(date: .now, repo: MockData.repoOneV2)
 }

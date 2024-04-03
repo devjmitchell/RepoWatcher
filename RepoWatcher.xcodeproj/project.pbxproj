@@ -29,6 +29,7 @@
 		D371CDB82BBC473E00F60B6F /* ContributorMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CDB72BBC473E00F60B6F /* ContributorMediumView.swift */; };
 		D3CB39342BBD947700247F73 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB39332BBD947700247F73 /* Contributor.swift */; };
 		D3CB39352BBD947700247F73 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB39332BBD947700247F73 /* Contributor.swift */; };
+		D3CB39362BBD9FFA00247F73 /* CompactRepoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371CD992BBAF6D600F60B6F /* CompactRepoWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +267,7 @@
 				D371CDAA2BBB021700F60B6F /* NetworkManager.swift in Sources */,
 				D371CDB42BBC402700F60B6F /* MockData.swift in Sources */,
 				D3CB39342BBD947700247F73 /* Contributor.swift in Sources */,
+				D3CB39362BBD9FFA00247F73 /* CompactRepoWidget.swift in Sources */,
 				D371CDAD2BBB0B8500F60B6F /* RepoMediumView.swift in Sources */,
 				D322F89A2BBAF49F00895232 /* ContentView.swift in Sources */,
 				D322F8982BBAF49F00895232 /* RepoWatcherApp.swift in Sources */,

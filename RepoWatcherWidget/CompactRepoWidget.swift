@@ -62,13 +62,15 @@ struct CompactRepoEntryView : View {
         switch family {
         case .systemMedium:
             RepoMediumView(repo: entry.repo)
+                .containerBackground(for: .widget) { }
         case .systemLarge:
-            VStack(spacing: 36) {
+            VStack(spacing: 76) {
                 RepoMediumView(repo: entry.repo)
                 if let bottomRepo = entry.bottomRepo {
                     RepoMediumView(repo: bottomRepo)
                 }
             }
+            .containerBackground(for: .widget) { }
         case .systemSmall, .systemExtraLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline:
             EmptyView()
         @unknown default:
@@ -94,7 +96,6 @@ struct CompactRepoWidget: Widget {
         .configurationDisplayName("Repo Watcher")
         .description("Keep an eye on one or two GitHub repositories.")
         .supportedFamilies([.systemMedium, .systemLarge])
-        .contentMarginsDisabled() // I added to remove extra padding, not in Sean's course (issue from later iOS versions?)
     }
 }
 

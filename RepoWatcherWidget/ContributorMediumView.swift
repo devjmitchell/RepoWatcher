@@ -38,6 +38,8 @@ struct ContributorMediumView: View {
                             Text("\(contributor.contributions)")
                                 .font(.caption2)
                                 .foregroundStyle(.secondary)
+                                .id(repo.name)
+                                .transition(.push(from: .trailing))
                         }
                     }
                 }
@@ -47,10 +49,5 @@ struct ContributorMediumView: View {
                 }
             }
         }
-        .padding()
     }
-}
-
-#Preview {
-    ContributorMediumView(repo: MockData.repoOne)
 }
