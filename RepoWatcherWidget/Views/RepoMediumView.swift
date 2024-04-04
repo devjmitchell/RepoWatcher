@@ -69,10 +69,10 @@ struct RepoMediumView: View {
 }
 
 #Preview(as: .systemMedium) {
-    CompactRepoWidget()
+    SingleRepoWidget()
 } timeline: {
-    CompactRepoEntry(date: .now, repo: MockData.repoOne, bottomRepo: nil)
-    CompactRepoEntry(date: .now, repo: MockData.repoOneV2, bottomRepo: nil)
+    SingleRepoEntry(date: .now, repo: MockData.repoOne)
+    SingleRepoEntry(date: .now, repo: MockData.repoOneV2)
 }
 
 private struct StatLabel: View {

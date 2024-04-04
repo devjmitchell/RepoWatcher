@@ -26,7 +26,7 @@ struct ContributorMediumView: View {
                       spacing: 20) {
                 ForEach(repo.contributors) { contributor in
                     HStack {
-                        Image(uiImage: UIImage(data: contributor.avatarData) ?? UIImage(resource: .avatar))
+                        Image(uiImage: UIImage(data: contributor.avatarData) ?? UIImage(named: "avatar")!)
                             .resizable()
                             .frame(width: 44, height: 44)
                             .clipShape(.circle)
